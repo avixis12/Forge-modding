@@ -1,4 +1,4 @@
-package com.adm.MujPrvniMod;
+package net.adm.MujPrvniMod;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -12,8 +12,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import com.adm.MujPrvniMod.MujPrvniMod;
 
 // An example config class. This is not required, but it's a good idea to have one to keep your config organized.
 // Demonstrates how to use Forge's config APIs

@@ -1,4 +1,6 @@
-package com.adm.MujPrvniMod;
+package net.adm.MujPrvniMod;
+
+import net.adm.MujPrvniMod.item.ModItems;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -39,8 +41,9 @@ public class MujPrvniMod {
 
     public MujPrvniMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        // hlo
-        // Register the commonSetup method for modloading
+        
+        ModItems.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
 
         // Register ourselves for server and other game events we are interested in
@@ -59,6 +62,9 @@ public class MujPrvniMod {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+            event.accept(ModItems.Car);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -72,9 +78,6 @@ public class MujPrvniMod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
     }
 }
