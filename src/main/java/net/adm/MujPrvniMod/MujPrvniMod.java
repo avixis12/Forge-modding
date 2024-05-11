@@ -64,6 +64,7 @@ public class MujPrvniMod {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
             event.accept(ModItems.car);
+            event.accept(ModItems.stocker);
         }
     }
 
