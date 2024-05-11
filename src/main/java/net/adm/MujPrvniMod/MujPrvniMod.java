@@ -42,7 +42,7 @@ public class MujPrvniMod {
     public MujPrvniMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         
-        ModItems.register(modEventBus);
+        ModItems.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         modEventBus.addListener(this::commonSetup);
 
